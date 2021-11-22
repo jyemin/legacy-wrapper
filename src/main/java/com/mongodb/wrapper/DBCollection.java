@@ -1,7 +1,6 @@
 package com.mongodb.wrapper;
 
 import com.mongodb.AggregationOptions;
-import com.mongodb.BulkWriteOperation;
 import com.mongodb.CommandResult;
 import com.mongodb.DBDecoderFactory;
 import com.mongodb.DBEncoder;
@@ -1515,8 +1514,7 @@ public class DBCollection {
      * @since 2.12
      */
     public BulkWriteOperation initializeOrderedBulkOperation() {
-        // TODO: implement this
-        throw new UnsupportedOperationException();
+        return new BulkWriteOperation(wrapped.initializeOrderedBulkOperation(), operationExecutor);
     }
 
     /**
@@ -1532,7 +1530,6 @@ public class DBCollection {
      * @since 2.12
      */
     public BulkWriteOperation initializeUnorderedBulkOperation() {
-        // TODO: implement this
-        throw new UnsupportedOperationException();
+        return new BulkWriteOperation(wrapped.initializeUnorderedBulkOperation(), operationExecutor);
     }
 }
